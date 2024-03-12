@@ -1,7 +1,25 @@
 import { type ReactNode, createContext, useState } from "react";
 
+// Type of Counter Context
 
-const CounterContext = createContext(null);
+type CounterContextProps = {
+    count:number,
+    setCount:any
+}
+
+
+
+
+
+export const CounterContext = createContext<CounterContextProps | null>(null);
+
+
+
+
+
+
+
+
 
 
 type ContextProviderProps = {
@@ -12,10 +30,10 @@ type ContextProviderProps = {
 
 export function ContextProvider({children}:ContextProviderProps){
 
-    const [count, setCount] = useState(null);
+    const [count, setCount] = useState(0);
     return (
 
-     <CounterContext.Provider value={count}>
+     <CounterContext.Provider value={{count, setCount}}>
             {children}
         </CounterContext.Provider>
 

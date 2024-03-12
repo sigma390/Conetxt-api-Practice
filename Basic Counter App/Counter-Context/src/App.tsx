@@ -7,7 +7,7 @@ import Comp2 from './Components/Comp2';
 
 function App() {
 
-  const countctx = useContext(CounterContext);
+  const countctx = useContext(CounterContext); // to iuse that centralised data
 
   return (
     <>

@@ -39,7 +39,7 @@ type ContextProviderProps = {
 
 // Context Provider
 
-const ContextProvider: React.FC<ContextProviderProps> = ({children}) =>{
+export const ContextProvider: React.FC<ContextProviderProps> = ({children}) =>{
     const [cartItems, setCartItems] = useState<CartItem[]>([])// must be of type cartItem
     
     // add cart

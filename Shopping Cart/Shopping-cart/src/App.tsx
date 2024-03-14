@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import './App.css';
 import Laptops from './Components/Laptops';
 import { useCartcontext } from './Store/CartContext';
+import Mobiles from './Components/Mobiles';
 
 function App() {
   const { cartItems } = useCartcontext();
@@ -19,6 +20,7 @@ function App() {
   return (
     <>
       <Laptops />
+      <Mobiles/>
       <div>{price}</div>
     </>
   );

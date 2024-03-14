@@ -1,7 +1,7 @@
 import { type ReactNode, createContext, useContext, useState } from "react";
-import { ItemCardprops } from "../Components/itemsCard";
+import { ItemCardProps } from "../Components/ItemsCard";
 
-type CartItem = ItemCardprops;
+type CartItem = ItemCardProps;
 
 
 // define type for context
@@ -12,11 +12,11 @@ type CartcontextProps = {
     removeFromCart:(itemId:number)=>void,
 }
 
-const CartContext = createContext<CartcontextProps| undefined>(undefined);
+export const CartContext = createContext<CartcontextProps| undefined>(undefined);
 
 //custom hook
 
-const useCartcontext = () =>{
+export const useCartcontext = () =>{
     const CartCtx = useContext(CartContext);
     if (!CartCtx) {
         throw new Error('Cnt used Outside provider!!')
@@ -43,9 +43,11 @@ export const ContextProvider: React.FC<ContextProviderProps> = ({children}) =>{
     const [cartItems, setCartItems] = useState<CartItem[]>([])// must be of type cartItem
     
     // add cart
-    const addToCart = (item:CartItem) =>{
-        return [...cartItems,item];
-    }
+// Function to add an item to cart
+const addToCart = (item: CartItem) => {
+    setCartItems(prevItems => [...prevItems, item]);
+    console.log(cartItems);
+};
 
 
     // remove cart

@@ -5,12 +5,16 @@ import './index.css'
 import { ContextProvider } from './Store/CartContext.tsx'
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
-  <ContextProvider>
+  
     <React.StrictMode>
+      <ContextProvider>
+      <App />
+
+      </ContextProvider>
     
-    <App />
+    
   </React.StrictMode>
 
-  </ContextProvider>
+  
   ,
 )
